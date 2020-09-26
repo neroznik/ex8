@@ -34,6 +34,9 @@ class Review(models.Model):
     text_review = models.TextField(verbose_name='Отзыв')
     rate = models.IntegerField(choices=CHOICES, unique=True)
 
+    def get_total(self):
+     return avarage
+
     def __str__(self):
         return f'{self.author}: {self.product}'
 

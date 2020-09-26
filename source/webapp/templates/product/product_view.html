@@ -1,8 +1,8 @@
  
 {% extends 'base.html' %}
 
-{% block title %}Poll{% endblock %}
 
+{% load static %}
 {% block menu %}
     <li> <a href="{% url 'webapp:review_create' product.pk %}">Добавить отзыв</a> </li>
         {% if perms.webapp.change_product %}
@@ -16,10 +16,11 @@
 
 {% block content %}
     <div class="block1">
-    {% if product.photo %}
+  {% if product.photo %}
         <img class="avatar" src="{{product.photo.url }}" width="250" height="250" alt="user picture">
-    {% endif %}
-
+                    {% else %}
+                    <img class="avatar" src="{% static 'img/nophoto.png' %}" width="250" height="250" alt="user picture">
+        {% endif %}
     <h1>{{ product.name}}</h1>
     <h6> <i>{{ product.category }}</i></h6>
     <h5>{{ product.description }}</h5>
@@ -48,4 +49,7 @@
         {% endfor %}
 
     </div>
+
+
 {% endblock %}
+

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Пользователь{% endblock %}
+
+{% block menu_links %}
+{% endblock %}
+
+{% block content %}
+    <h1>Личная страница пользователя {{ user_obj.get_full_name|default:user_obj.username }}</h1>
+    <div>
+    <pr><a href="{% url 'accounts:change' user_obj.pk %}">Редактировать</a></pr>
+    <pr><a href="{% url "accounts:password_change" user_obj.pk %}"> Смена пароля</a></pr>
+    </div>>
+    {% if user_obj.profile.avatar %}
+        <img class="avatar" src="{{ user_obj.profile.avatar.url }}" width="250" height="250" alt="user picture">
+    {% endif %}
+
+
+    <p>Имя пользователя: {{ user_obj.username }}</p>
+    <p>Имя: {{ user_obj.first_name }}</p>
+    <p>Фамилия: {{ user_obj.last_name }}</p>
+    <p>Почта: {{ user_obj.email }}
+    <p> О себе: {{ user_obj.profile.about }}</p>
+    <p> GitHub: <a href="{{ user_obj.profile.git_url }}">{{ user_obj.profile.git_url }}</a></p>
+
+    <h2 class="text-center clear">Отзывы пользователя:</h2>
+    {% for review in user_obj.autors.all %} <b> Товар: {{ review.product.name }}</b>: Отзыв: {{ review.text_review }}{% if not forloop.last %}, {%  endif %} {% endfor %}
+
+.
+{% endblock %}
