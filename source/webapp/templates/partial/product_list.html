@@ -1,0 +1,42 @@
+     <div class = 'block1'>
+     {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+
+    <div class="row ">
+    {% for product in products %}
+        <div class="col-3 wrap my-4 bg_self">
+        <div class="row ">
+
+            <div class="card" style="width: 18rem;">
+            {% for product in products  %}
+            <img class="card-img-top" src="{{ product.photo }}" alt="Card image cap">
+            {% empty %}
+            <img class="card-img-top" src='{% static 'img/nophoto.png' %}' alt="Card image cap">
+    {% endfor %}
+            <div class="card-body">
+        <p class = "title"><a href="{% url "webapp:product_view" product.pk %}">{{ product.name }}</a></p>
+        <p class ="category"><i>{{ product.category }}</i></p>
+        <div class="description"><i>{{ product.description | linebreaks }}</i></div>
+
+        <a class="btn btn-outline-success" href="{% url 'webapp:product_update' product.pk %}"> <i class="fa fa-fw fa-edit"></i></a>
+        <a class="btn btn-outline-danger" href="{% url 'webapp:product_delete' product.pk %}"> <i class="fa fa-fw fa-trash"></i></a>
+
+        </div>
+            </div>
+
+        </div>
+        </div>
+        <hr>
+
+        </div>
+
+    {% endfor %}
+
+    </div>
+
+     {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+     </div>
+     </div>

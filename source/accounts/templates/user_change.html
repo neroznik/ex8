@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 
 {% block title %}Редактировать пользователя{% endblock %}
-
-{% block menu %}
+{% block menu_links %}
     <li><a href="{% url "accounts:detail" user_obj.pk %}">Назад</a></li>
-    <li><a href="{% url "accounts:password_change" %}">Смена пароля</a></li>
+    <li><a href="#">Смена пароля</a></li>
 {% endblock %}
 
 {% block content %}
@@ -16,4 +15,5 @@
         <br>
         <input type="submit" value="Submit">
     </form>
+
 {% endblock %}
