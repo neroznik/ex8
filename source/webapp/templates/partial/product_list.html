@@ -1,3 +1,4 @@
+{% load static %}
      <div class = 'block1'>
      {% if is_paginated %}
         {% include 'partial/pagination.html' %}
@@ -10,6 +11,8 @@
             <div class="col-md-9">
                 {% if product.photo %}
         <img class="avatar" src="{{product.photo.url }}" width="250" height="250" alt="user picture">
+                    {% else %}
+                    <img class="avatar" src="{% static 'img/nophoto.png' %}" width="250" height="250" alt="user picture">
         {% endif %}
         <p class = "title"><a href="{% url "webapp:product_view" product.pk %}">{{ product.name }}</a></p>
         <div class="description"><i>{{ product.description | linebreaks }}</i></div>

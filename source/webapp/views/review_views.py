@@ -19,7 +19,7 @@ class ReviewView(TemplateView):
         return context
 
 
-class ReviewCreateView(LoginRequiredMixin,PermissionRequiredMixin, CreateView):
+class ReviewCreateView(LoginRequiredMixin, CreateView):
     template_name = 'review/review_create.html'
     form_class = ReviewForm
     model = Review
