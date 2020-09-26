@@ -26,5 +26,5 @@
     <h2 class="text-center clear">Отзывы пользователя:</h2>
     {% for review in user_obj.autors.all %} <b> Товар: {{ review.product.name }}</b>: Отзыв: {{ review.text_review }}{% if not forloop.last %}, {%  endif %} {% endfor %}
 
-
+.
 {% endblock %}
