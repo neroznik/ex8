@@ -35,7 +35,7 @@ class Review(models.Model):
     rate = models.IntegerField(choices=CHOICES, unique=True)
 
     def __str__(self):
-        return f'{self.author}: {self.review}'
+        return f'{self.author}: {self.product}'
 
     class Meta:
         verbose_name = 'Отзыв'
