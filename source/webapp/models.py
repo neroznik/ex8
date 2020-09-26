@@ -9,7 +9,7 @@ CATEGORY_CHOICES = (
     ('toys', 'Детские игрушки'),
     ('appliances', 'Бытовая Техника')
 )
-CHOICES = [(i,i) for i in range(6)]
+CHOICES = [(i,i) for i in range(1,6)]
 
 
 class Product(models.Model):
