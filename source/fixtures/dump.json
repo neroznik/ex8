@@ -1,0 +1,62 @@
+[
+{
+  "model": "webapp.product",
+  "pk": 5,
+  "fields": {
+    "name": "\u0413\u0430\u0437\u043e\u043d\u043e\u043a\u043e\u0441\u0438\u043b\u043a\u0430",
+    "category": "appliances",
+    "description": "Bosh",
+    "photo": "user_pics/img_0_945_56_0_Zay5y1y.jpeg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 6,
+  "fields": {
+    "name": "\u0422\u0443\u0430\u043b\u0435\u0442\u043d\u0430\u044f \u0431\u0443\u043c\u0430\u0433\u0430",
+    "category": "household",
+    "description": "\u0421\u0438\u0440\u0435\u043d\u044c",
+    "photo": "user_pics/siren_C40lVF8.png"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 7,
+  "fields": {
+    "name": "\u0425\u043b\u0435\u0431",
+    "category": "food",
+    "description": "\u0412\u043a\u0443\u0441\u043d\u044b\u0439",
+    "photo": "user_pics/180595_DOvwL20.jpg"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 1,
+  "fields": {
+    "author": 1,
+    "product": 5,
+    "text_review": "\u041e\u0442\u043b\u0438\u0447\u043d\u0430\u044f",
+    "rate": 5
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 2,
+  "fields": {
+    "author": 2,
+    "product": 6,
+    "text_review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, voluptatibus.",
+    "rate": 4
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 3,
+  "fields": {
+    "author": 3,
+    "product": 5,
+    "text_review": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, voluptatibus.",
+    "rate": 2
+  }
+}
+]

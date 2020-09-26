@@ -16,10 +16,11 @@
 
 {% block content %}
     <div class="block1">
-    {% if product.photo %}
+  {% if product.photo %}
         <img class="avatar" src="{{product.photo.url }}" width="250" height="250" alt="user picture">
-    {% endif %}
-
+                    {% else %}
+                    <img class="avatar" src="{% static 'img/nophoto.png' %}" width="250" height="250" alt="user picture">
+        {% endif %}
     <h1>{{ product.name}}</h1>
     <h6> <i>{{ product.category }}</i></h6>
     <h5>{{ product.description }}</h5>
@@ -52,4 +53,3 @@
 
 {% endblock %}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque error esse nulla temporibus totam!
