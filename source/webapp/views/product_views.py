@@ -5,12 +5,11 @@ from django.views.generic import CreateView, UpdateView, DeleteView, TemplateVie
 
 from webapp.models import Product
 from webapp.forms import ProductForm, Review
-from .base_views import SearchView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
 class IndexView(ListView):
-    template_name = 'prouct/index.html'
+    template_name = 'product/index.html'
     context_object_name = 'product'
     paginate_by = 5
     paginate_orphans = 0
@@ -63,7 +62,7 @@ class ProductUpdateView(PermissionRequiredMixin, UpdateView):
 class ProductDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'product/product_delete.html'
     model = Product
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('webapp:index')
     permission_required = 'webapp.delete_product'
 
 

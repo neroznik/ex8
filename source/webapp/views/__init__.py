@@ -1,2 +1,2 @@
-from .tasks_views import *
+from .review_views import *
 from .product_views import *

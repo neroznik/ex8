@@ -18,12 +18,8 @@
            <ul class="menu">
                <li><a href="{% url 'webapp:index' %}">Home</a></li>
                 {% if request.user.is_authenticated %}
-                    {% if perms.webapp.add_project %}
-                        <li><a href="{% url 'webapp:project_create' %}">Create Project</a></li>
-                    {% endif %}
-
-                    {% if perms.accounts.can_see_list %}
-                        <li><a href="{% url 'accounts:list' %}">Users list</a></li>
+                    {% if perms.webapp.add_product %}
+                        <li><a href="{% url 'webapp:product_create' %}"> Создайте продукт </a></li>
                     {% endif %}
 
                     {% block menu %}{% endblock %}
@@ -37,15 +33,6 @@
 
            </ul>
 
-       {% block search %}
-
-
-           <form class="form-inline my-2 my-lg-0" action= "{% url 'webapp:index' %}" method="GET">
-               <input class="form-control mr-sm-2"  type="{{ search_form.search }}" placeholder="Search">
-
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
-        </form>
-       {% endblock %}
        </div>
     </nav>
     <div class="container">

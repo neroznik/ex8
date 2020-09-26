@@ -4,19 +4,20 @@
 {% block title %}Poll{% endblock %}
 
 {% block menu %}
+    <li> <a href="{% url 'webapp:review_create' product.pk %}">Добавить отзыв</a> </li>
         {% if perms.webapp.change_product %}
         <li><a href="{% url 'webapp:product_update' product.pk %}">Update</a></li>
     {% endif %}
     {% if perms.webapp.delete_product %}
-        <li><a href="{% url 'webapp:product_delete' P.pk %}">Delete</a></li>
+        <li><a href="{% url 'webapp:product_delete' product.pk %}">Delete</a></li>
     {% endif %}
 
 {% endblock %}
 
 {% block content %}
     <div class="block1">
-    {% if user_obj.profile.avatar %}
-        <img class="avatar" src="{{ product.photo }}" width="250" height="250" alt="user picture">
+    {% if product.photo %}
+        <img class="avatar" src="{{product.photo.url }}" width="250" height="250" alt="user picture">
     {% endif %}
 
     <h1>{{ product.name}}</h1>
@@ -24,23 +25,26 @@
     <h5>{{ product.description }}</h5>
 
         <h2>Обзоры:</h2>
-    {% for  review in product.review.all %}
+    {% for  review in product.products.all %}
 
             <div class="card container mt-4 pt-2">
-                {% for user in review.author.all %}
-                <pr><a href="{% url 'accounts:detail' user.pk%}">{{user.username}}</a></pr>
-                {% endfor %}
+               <a href="{% url 'accounts:detail' user.pk %}">{{ review.author}}</a></h1>
 
-                <div class="pre">{{ review.review}}</div>
+               <div class="pre">{{ review.text_review}}</div>
+
                 {% if perms.webapp.update_review %}
                 <p><a href="{% url 'webapp:review_update' review.pk %}">Update</a></p>
                 {% endif %}
+
                 {% if perms.webapp.delete_review %}
                 <p><a href="{% url 'webapp:review_delete' review.pk %}">Delete</a></p>
                 {% endif %}
+
+
             </div>
         {% empty %}
-            <p>Нет отзывов:</p>
+            <p>Нет отзывов :</p>
+
         {% endfor %}
 
     </div>
