@@ -1,8 +1,8 @@
  
 {% extends 'base.html' %}
 
-{% block title %}Poll{% endblock %}
 
+{% load static %}
 {% block menu %}
     <li> <a href="{% url 'webapp:review_create' product.pk %}">Добавить отзыв</a> </li>
         {% if perms.webapp.change_product %}
